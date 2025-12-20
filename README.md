@@ -41,7 +41,7 @@ const config = {
         },
         { 
             id: "sub1", 
-            parentId: "alpha", // Verknüpfung zur Parent-Node
+            parentId: "alpha", // Link to  Parent-Node
             x: 100, 
             y: 150, 
             r: 25, 
