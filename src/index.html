@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Borg Neural Tree - Final Integration</title>
+	<link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+<div class="interface-container">
+	<div class="status-log" id="statusLog"></div>
+	<div class="grid"></div>
+
+	<svg viewBox="0 0 1000 800" class="neural-svg" id="neuralNet">
+		<defs>
+			<filter id="glow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+			<radialGradient id="nodePulseGradient"><stop offset="0%" stop-color="#80ff7a"/><stop offset="50%" stop-color="#4eff44"/><stop offset="100%" stop-color="#080a08"/></radialGradient>
+		</defs>
+
+		<g id="ghostLayer"></g>
+		<g id="radarContainer"></g>
+		<g id="pathsContainer" stroke="#4eff44" fill="none" stroke-width="3" filter="url(#glow)" opacity="0.4"></g>
+		<g id="pulseContainer"></g>
+		<g id="nodesContainer" filter="url(#glow)"></g>
+	</svg>
+
+	<div id="infoPanel" class="info-panel">
+		<div style="font-size: 9px; opacity: 0.6; border-bottom: 1px solid; margin-bottom: 10px;">NEURAL_DATA_LINK</div>
+		<div id="infoTitle" style="font-size: 20px; margin-bottom: 10px;"></div>
+		<div id="infoText" style="font-size: 14px; line-height: 1.5;"></div>
+		<button class="btn-close" onclick="closePanel()">DISCONNECT</button>
+	</div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>

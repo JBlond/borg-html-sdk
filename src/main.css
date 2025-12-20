@@ -1,0 +1,192 @@
+:root {
+	--borg-green: #4eff44;
+	--dark-bg: #080a08;
+	--panel-bg: rgba(8, 15, 8, 0.95);
+}
+
+body, html {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	background: var(--dark-bg);
+	overflow: hidden;
+	font-family: 'Courier New', monospace;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.interface-container {
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.grid {
+	position: absolute;
+	inset: 0;
+	background-image: linear-gradient(rgba(78, 255, 68, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(78, 255, 68, 0.05) 1px, transparent 1px);
+	background-size: 40px 40px;
+	z-index: -1;
+}
+
+.neural-svg {
+	width: 1000px;
+	height: 800px;
+	overflow: visible;
+}
+
+/* Animationen */
+@keyframes borgBlink {
+	0%, 100% {
+		filter: brightness(0.7) drop-shadow(0 0 5px rgba(78, 255, 68, 0.4));
+	}
+	50% {
+		filter: brightness(1.6) drop-shadow(0 0 15px var(--borg-green));
+	}
+}
+
+.node {
+	transition: all 0.3s;
+}
+
+.node.clickable {
+	cursor: pointer;
+}
+
+.node.clickable:hover {
+	stroke-width: 4px;
+	filter: brightness(1.8) drop-shadow(0 0 20px var(--borg-green));
+}
+
+.blink-1 {
+	animation: borgBlink 3.5s infinite;
+}
+
+.blink-2 {
+	animation: borgBlink 4.5s infinite;
+	animation-delay: 1s;
+}
+
+.blink-3 {
+	animation: borgBlink 2.8s infinite;
+	animation-delay: 0.5s;
+}
+
+.core-ring {
+	animation: coreRotate 40s linear infinite;
+	stroke-dasharray: 10 15;
+	transform-origin: center;
+}
+
+@keyframes coreRotate {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+/* HUD & UI */
+.info-panel {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) scale(0);
+	width: 320px;
+	background: var(--panel-bg);
+	backdrop-filter: blur(10px);
+	border: 1.5px solid var(--borg-green);
+	border-radius: 30px 5px;
+	padding: 25px;
+	color: var(--borg-green);
+	z-index: 100;
+	visibility: hidden;
+	transition: all 0.4s cubic-bezier(0.17, 0.88, 0.32, 1.28);
+}
+
+.info-panel.active {
+	transform: translate(-50%, -50%) scale(1);
+	visibility: visible;
+}
+
+.btn-close {
+	background: rgba(78, 255, 68, 0.1);
+	border: 1px solid var(--borg-green);
+	color: var(--borg-green);
+	padding: 8px;
+	width: 100%;
+	cursor: pointer;
+	margin-top: 15px;
+	border-radius: 0 0 10px 0;
+}
+
+.status-log {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	width: 250px;
+	height: 120px;
+	font-size: 10px;
+	color: var(--borg-green);
+	opacity: 0.5;
+	overflow: hidden;
+	pointer-events: none;
+	line-height: 1.2;
+	text-shadow: 0 0 5px var(--borg-green);
+	-webkit-mask-image: linear-gradient(to bottom, transparent, black 20%, black);
+	mask-image: linear-gradient(to bottom, transparent, black 20%, black);
+}
+
+/* FX */
+.radar-ring {
+	stroke: var(--borg-green);
+	stroke-width: 1;
+	fill: none;
+	opacity: 0;
+	pointer-events: none;
+}
+
+.radar-active {
+	animation: radarSweep 8s infinite linear;
+}
+
+@keyframes radarSweep {
+	0% {
+		r: 0;
+		opacity: 0.5;
+	}
+	100% {
+		r: 800;
+		opacity: 0;
+	}
+}
+
+.ghost-element {
+	opacity: 0.12;
+	pointer-events: none;
+}
+
+.data-pulse {
+	opacity: 0;
+	animation: pulseFade 1s forwards;
+}
+
+@keyframes pulseFade {
+	to {
+		opacity: 1;
+	}
+}
+
+.path-highlight {
+	stroke-width: 5px !important;
+	stroke: #fff !important;
+	opacity: 1 !important;
+	filter: drop-shadow(0 0 8px var(--borg-green)) !important; /* Extra Glühen */
+	transition: all 0.2s ease;
+}
