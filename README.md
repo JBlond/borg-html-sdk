@@ -50,3 +50,11 @@ const config = {
     ]
 };
 ```
+🧠 Technical Details
+
+- Graphics: Scalable vector graphics (SVG) for lossless rendering.
+- Animations: Combination of CSS keyframes and SVG animateMotion.
+- Logic: Recursive JavaScript functions for path tracking.
+- Design: Purist Borg green with glow filters and semi-transparent overlays.
+
+> "Resistance is futile. The biological and technological characteristics will be added to ours."
