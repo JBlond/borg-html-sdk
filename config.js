@@ -8,7 +8,8 @@ const config = {
 			r: 45,
 			blink: 'blink-1',
 			title: "Sub-Unit 01",
-			text: "Neuralfrequenz stabil bei 44.2 Hz."
+			text: "Neuralfrequenz stabil bei 44.2 Hz.",
+			shortcut: "0"
 		},
 		{
 			id: "p1",
@@ -17,7 +18,8 @@ const config = {
 			r: 32,
 			blink: 'blink-2',
 			title: "Tactical Hub",
-			text: "Scan von Sektor 001 abgeschlossen."
+			text: "Scan von Sektor 001 abgeschlossen.",
+			shortcut: "1"
 		},
 		{
 			id: "p2",
@@ -26,7 +28,8 @@ const config = {
 			r: 42,
 			blink: 'blink-3',
 			title: "Bio-Matrix",
-			text: "Kortikalknoten-Status: Optimal."
+			text: "Kortikalknoten-Status: Optimal.",
+			shortcut: "2"
 		},
 		{
 			id: "p3",
@@ -35,7 +38,8 @@ const config = {
 			r: 35,
 			blink: 'blink-1',
 			title: "Power Core",
-			text: "Energieverteilung auf 104% gesteigert."
+			text: "Energieverteilung auf 104% gesteigert.",
+			shortcut: "3"
 		},
 		{
 			id: "p4",
@@ -44,7 +48,8 @@ const config = {
 			r: 45,
 			blink: 'blink-2',
 			title: "Comms Relay",
-			text: "Interlink-Protokoll aktiv."
+			text: "Interlink-Protokoll aktiv.",
+			shortcut: "4"
 		},
 		{
 			id: "p5",
@@ -54,7 +59,8 @@ const config = {
 			blink: 'blink-3',
 			title: "Memory Bank",
 			text: "Verschlüsselung läuft.",
-			closetext: "OKAY"
+			closetext: "OKAY",
+			shortcut: "5"
 		},
 		{
 			id: "sub1",
@@ -64,7 +70,8 @@ const config = {
 			r: 25,
 			blink: 'blink-2',
 			title: "Sensor A",
-			text: "Langstreckenscan aktiv."
+			text: "Langstreckenscan aktiv.",
+			shortcut: "6"
 		},
 		{
 			id: "sub2",
@@ -72,7 +79,8 @@ const config = {
 			x: 120,
 			y: 450,
 			r: 20,
-			blink: 'blink-1'
+			blink: 'blink-1',
+			shortcut: "7"
 		},
 		{
 			id: "sub3",
@@ -82,7 +90,8 @@ const config = {
 			r: 28,
 			blink: 'blink-1',
 			title: "Relay 04",
-			text: "Datenweiterleitung aktiv."
+			text: "Datenweiterleitung aktiv.",
+			shortcut: "8"
 		}
 	]
 };
