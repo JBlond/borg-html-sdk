@@ -53,7 +53,8 @@ const config = {
 			r: 50,
 			blink: 'blink-3',
 			title: "Memory Bank",
-			text: "Verschlüsselung läuft."
+			text: "Verschlüsselung läuft.",
+			closetext: "OKAY"
 		},
 		{
 			id: "sub1",
@@ -227,6 +228,10 @@ function createSVGElement(type, attrs) {
 function openPanel(node) {
 	document.getElementById('infoTitle').innerText = node.title;
 	document.getElementById('infoText').innerText = node.text;
+	document.getElementById('closer').innerText = 'DISCONNECT';
+	if (typeof node.closetext !== 'undefined') {
+		document.getElementById('closer').innerText = node.closetext;
+	}
 	document.getElementById('infoPanel').classList.add('active');
 }
 

@@ -37,7 +37,8 @@ const config = {
             r: 40, 
             blink: 'blink-1', 
             title: "Nexus Alpha", 
-            text: "Zentraler Rechenknoten." 
+            text: "Zentraler Rechenknoten.",
+	        closetext: 'custom text' // optional
         },
         { 
             id: "sub1", 
