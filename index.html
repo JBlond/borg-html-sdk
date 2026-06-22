@@ -22,7 +22,7 @@
 		<g id="radarContainer"></g>
 		<g id="pathsContainer" stroke="#4eff44" fill="none" stroke-width="3" filter="url(#glow)" opacity="0.4"></g>
 		<g id="pulseContainer"></g>
-		<g id="nodesContainer" filter="url(#glow)"></g>
+		<g id="nodesContainer" filter="url(#glow)" class="interactive-node"></g>
 	</svg>
 
 	<div id="infoPanel" class="info-panel">
@@ -48,7 +48,12 @@
 	<div class="glyph"><span class="char-arc right"></span><span class="char-dot"></span></div>
 </div>
 
+<div class="terminal-status">
+	<span id="mute-btn" class="interactive-text">[AUDIO: ACTIVE]</span>
+</div>
+
 
 <script src="main.js"></script>
+<script src="hiveSound.js"></script>
 </body>
 </html>

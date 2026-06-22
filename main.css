@@ -285,3 +285,27 @@ body, html {
 	0%, 100% { transform: scale(1); }
 	50% { transform: scale(0.8); opacity: 0.5; }
 }
+
+.terminal-status {
+	position: absolute;
+	bottom: 30px;
+	color: var(--borg-green);
+	font-size: 12px;
+	letter-spacing: 2px;
+	opacity: 0.6;
+	text-shadow: 0 0 5px var(--borg-green);
+}
+
+.interactive-text {
+	cursor: pointer;
+	color: var(--borg-green);
+	font-weight: bold;
+	padding: 0 5px;
+	transition: all 0.2s ease;
+}
+
+.interactive-text:hover {
+	background-color: var(--borg-green);
+	color: #000;
+	text-shadow: none;
+}

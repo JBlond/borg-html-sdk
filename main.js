@@ -229,7 +229,8 @@ function openPanel(node) {
 	document.getElementById('infoTitle').innerText = node.title;
 	document.getElementById('infoText').innerText = node.text;
 	document.getElementById('closer').innerText = 'DISCONNECT';
-	if (typeof node.closetext !== 'undefined') {
+	if (typeof node.closetext !== 'undefined')
+	{
 		document.getElementById('closer').innerText = node.closetext;
 	}
 	document.getElementById('infoPanel').classList.add('active');
