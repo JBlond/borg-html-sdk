@@ -21,6 +21,10 @@ recursive path highlighting, and atmospheric background effects.
 - **Status Log:** A simulated terminal stream for Hive messages.
 - **Interactive Info Panels:** Clickable nodes open HUD windows with detailed information.
 
+## Short Keys
+
+- `m` mute sound
+- `f` fire all burst
 
 ## ⚙️ Configuration
 
