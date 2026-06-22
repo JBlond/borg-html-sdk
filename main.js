@@ -67,11 +67,11 @@ const config = {
 			text: "Langstreckenscan aktiv."
 		},
 		{
-			id: "sub2", 
-			parentId: "p5", 
-			x: 120, 
-			y: 450, 
-			r: 20, 
+			id: "sub2",
+			parentId: "p5",
+			x: 120,
+			y: 450,
+			r: 20,
 			blink: 'blink-1'
 		},
 		{
@@ -193,7 +193,7 @@ function fireDataBurst(nodeId) {
 
 		if (path) {
 			// Wir schießen 3 schnelle Pulse kurz hintereinander ab
-			for (let i = 0; i < 3; i++) {
+			for (let i = 0; i < 5; i++) {
 				createSingleBurstPulse(pathId, delay + (i * 150));
 			}
 			// Da der nächste Pfadabschnitt erst erreicht werden muss,
