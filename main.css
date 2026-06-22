@@ -190,3 +190,98 @@ body, html {
 	filter: drop-shadow(0 0 8px var(--borg-green)) !important; /* Extra Glühen */
 	transition: all 0.2s ease;
 }
+
+/* font */
+.borg-script {
+	position: absolute;
+	display: flex;
+	gap: 15px;
+	filter: drop-shadow(0 0 4px var(--borg-green));
+	opacity: 0.7;
+}
+
+.left-column {
+	left: 40px;
+	top: 20%;
+	flex-direction: column;
+}
+
+.right-row {
+	right: 60px;
+	top: 50px;
+	flex-direction: row;
+}
+
+/* Basis für ein Schriftzeichen-Modul */
+.glyph {
+	position: relative;
+	width: 24px;
+	height: 24px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	animation: glyphFlicker 4s infinite alternate;
+}
+
+/* Die verschiedenen mathematischen Kreisformen der Borg */
+.char-circle {
+	width: 100%;
+	height: 100%;
+	border: 2px solid var(--borg-green);
+	border-radius: 50%;
+}
+
+.char-circle.broken {
+	border-bottom-color: transparent;
+	animation: spinGlyph 8s linear infinite;
+}
+
+.char-arc {
+	width: 100%;
+	height: 100%;
+	border: 2px solid transparent;
+	border-radius: 50%;
+}
+.char-arc.top { border-top-color: var(--borg-green); }
+.char-arc.bottom { border-bottom-color: var(--borg-green); }
+.char-arc.left { border-left-color: var(--borg-green); }
+.char-arc.right { border-right-color: var(--borg-green); }
+
+.char-dot {
+	position: absolute;
+	width: 5px;
+	height: 5px;
+	background-color: var(--borg-green);
+	border-radius: 50%;
+	right: -8px;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.char-dot.inner {
+	right: auto;
+	top: auto;
+	transform: none;
+	width: 4px;
+	height: 4px;
+}
+
+/* Text-Animationen für das Interface-Feeling */
+@keyframes glyphFlicker {
+	0%, 90%, 100% { opacity: 0.8; }
+	93%, 97% { opacity: 0.3; }
+}
+
+@keyframes spinGlyph {
+	from { transform: rotate(0deg); }
+	to { transform: rotate(360deg); }
+}
+
+.pulse {
+	animation: pulseGlyph 2s infinite ease-in-out;
+}
+
+@keyframes pulseGlyph {
+	0%, 100% { transform: scale(1); }
+	50% { transform: scale(0.8); opacity: 0.5; }
+}
