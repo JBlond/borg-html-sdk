@@ -309,3 +309,32 @@ body, html {
 	color: #000;
 	text-shadow: none;
 }
+
+
+.burst-pulse {
+	fill: #ffffff !important;               /* Strahlendes Weiß im Kern */
+	stroke: var(--borg-green) !important;   /* Grüner border */
+	stroke-width: 1px;
+	opacity: 1 !important;
+	filter: drop-shadow(0 0 4px var(--borg-green)) !important; /* Intensiver Borg-Glow */
+	z-index: 10;
+}
+
+
+.burst-pulse-css {
+	fill: #ffffff !important;
+	stroke: var(--borg-green) !important;
+	stroke-width: 1.5px;
+	filter: drop-shadow(0 0 5px var(--borg-green)) !important;
+
+	animation: moveAlongPath 0.5s linear forwards;
+}
+
+@keyframes moveAlongPath {
+	from {
+		offset-distance: 0%;
+	}
+	to {
+		offset-distance: 100%;
+	}
+}

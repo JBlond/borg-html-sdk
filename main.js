@@ -66,7 +66,14 @@ const config = {
 			title: "Sensor A",
 			text: "Langstreckenscan aktiv."
 		},
-		{id: "sub2", parentId: "p5", x: 120, y: 450, r: 20, blink: 'blink-1'},
+		{
+			id: "sub2", 
+			parentId: "p5", 
+			x: 120, 
+			y: 450, 
+			r: 20, 
+			blink: 'blink-1'
+		},
 		{
 			id: "sub3",
 			parentId: "p2",
@@ -143,7 +150,11 @@ function initInterface() {
 			circle.onclick = () => openPanel(node);
 
 			// REKURSIVES HIGHLIGHTING STARTEN
-			circle.onmouseenter = () => highlightPathTrace(node.id, true);
+			circle.onmouseenter = () => {
+				highlightPathTrace(node.id, true);
+				// fire datapacks at Hover along the chain
+				fireDataBurst(node.id);
+			};
 			circle.onmouseleave = () => highlightPathTrace(node.id, false);
 		}
 		nodesContainer.appendChild(circle);
@@ -165,13 +176,66 @@ function highlightPathTrace(nodeId, active) {
 			if (active) path.classList.add('path-highlight');
 			else path.classList.remove('path-highlight');
 		}
+		const currentNode = config.nodes.find(n => n.id === currentNodeId);
+		currentNodeId = currentNode ? currentNode.parentId : null;
+	}
+}
 
-		// Finde die aktuelle Node, um die parentId zu prüfen
+// Rekursiver Data-Burst to center
+function fireDataBurst(nodeId) {
+	let currentNodeId = nodeId;
+	let delay = 0;
+
+	// Wir wandern die Kette hoch
+	while (currentNodeId) {
+		const pathId = `path_${currentNodeId}`;
+		const path = document.getElementById(pathId);
+
+		if (path) {
+			// Wir schießen 3 schnelle Pulse kurz hintereinander ab
+			for (let i = 0; i < 3; i++) {
+				createSingleBurstPulse(pathId, delay + (i * 150));
+			}
+			// Da der nächste Pfadabschnitt erst erreicht werden muss,
+			// erhöhen wir das Delay für die nächste Ebene (Eltern-Pfad)
+			delay += 400;
+		}
+
 		const currentNode = config.nodes.find(n => n.id === currentNodeId);
 
 		// Wenn die Node eine parentId hat, setze die Schleife fort, sonst stop (Zentrum erreicht)
 		currentNodeId = currentNode ? currentNode.parentId : null;
 	}
+}
+
+// single temporary High-Speed-Puls
+function createSingleBurstPulse(pathId, delayMs) {
+	setTimeout(() => {
+		const container = document.getElementById('pulseContainer');
+		const targetPath = document.getElementById(pathId);
+		if (!container || !targetPath) return;
+
+		// Wir holen die exakten Pfaddaten
+		const pathData = targetPath.getAttribute('d');
+
+		// Wir erstellen einen nackten SVG-Kreis
+		const pulse = createSVGElement("circle", {
+			r: "3.5",
+			class: "burst-pulse-css" // Neue Klasse!
+		});
+
+		// Wir weisen dem Kreis den Pfad direkt als CSS-Style zu
+		// modernere Browser brauchen kein animateMotion mehr dafür!
+		pulse.style.offsetPath = `path('${pathData}')`;
+
+		container.appendChild(pulse);
+
+		// Nach Ablauf der CSS-Animation (500ms) löschen
+		setTimeout(() => {
+			pulse.remove();
+		}, 500);
+
+	}, delayMs);
 }
 
 function createGhostNetwork() {
