@@ -164,7 +164,8 @@ function initInterface() {
 }
 
 // Neue Funktion für das Verfolgen des Pfades zum Zentrum
-function highlightPathTrace(nodeId, active) {
+function highlightPathTrace(nodeId, active)
+{
 	let currentNodeId = nodeId;
 
 	// Wir wandern den Baum hoch bis zum Zentrum
@@ -182,7 +183,8 @@ function highlightPathTrace(nodeId, active) {
 }
 
 // Rekursiver Data-Burst to center
-function fireDataBurst(nodeId) {
+function fireDataBurst(nodeId)
+{
 	let currentNodeId = nodeId;
 	let delay = 0;
 
@@ -191,13 +193,12 @@ function fireDataBurst(nodeId) {
 		const pathId = `path_${currentNodeId}`;
 		const path = document.getElementById(pathId);
 
-		if (path) {
-			// Wir schießen 3 schnelle Pulse kurz hintereinander ab
+		if (path)
+		{
+			// Fire 5 data packages
 			for (let i = 0; i < 5; i++) {
 				createSingleBurstPulse(pathId, delay + (i * 150));
 			}
-			// Da der nächste Pfadabschnitt erst erreicht werden muss,
-			// erhöhen wir das Delay für die nächste Ebene (Eltern-Pfad)
 			delay += 400;
 		}
 
@@ -209,7 +210,8 @@ function fireDataBurst(nodeId) {
 }
 
 // single temporary High-Speed-Puls
-function createSingleBurstPulse(pathId, delayMs) {
+function createSingleBurstPulse(pathId, delayMs)
+{
 	setTimeout(() => {
 		const container = document.getElementById('pulseContainer');
 		const targetPath = document.getElementById(pathId);
@@ -238,7 +240,8 @@ function createSingleBurstPulse(pathId, delayMs) {
 	}, delayMs);
 }
 
-function createGhostNetwork() {
+function createGhostNetwork()
+{
 	const layer = document.getElementById('ghostLayer');
 	for (let i = 0; i < 15; i++)
 	{
