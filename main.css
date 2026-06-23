@@ -4,6 +4,15 @@
 	--panel-bg: rgba(8, 15, 8, 0.95);
 }
 
+@font-face {
+	font-family: borg;
+	src: url("borg.ttf");
+}
+
+.borg {
+	font-family: borg, monospace;
+}
+
 body, html {
 	margin: 0;
 	padding: 0;
