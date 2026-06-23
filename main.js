@@ -72,6 +72,10 @@ function initInterface() {
 	});
 
 	startStatusLog();
+
+	setTimeout(() => {
+		document.getElementById('statement').remove();
+	}, 15000);
 }
 
 // Neue Funktion für das Verfolgen des Pfades zum Zentrum
