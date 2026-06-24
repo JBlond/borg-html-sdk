@@ -7,7 +7,7 @@ let isMuted = false;
 function startHiveDrone() {
 	if (audioCtx) return;
 
-	audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+	audioCtx = new (window.AudioContext)();
 
 	mainGain = audioCtx.createGain();
 	mainGain.gain.setValueAtTime(0.15, audioCtx.currentTime);
